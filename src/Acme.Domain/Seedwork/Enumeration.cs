@@ -1,3 +1,5 @@
+using System;
+
 namespace Acme.Domain.Seedwork;
 
 public abstract class Enumeration : IComparable

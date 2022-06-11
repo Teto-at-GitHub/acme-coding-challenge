@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Acme.Domain.Seedwork;
 
 namespace Acme.Domain.AggregatesModel.ProductAggregate;

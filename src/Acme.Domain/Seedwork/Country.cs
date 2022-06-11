@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Acme.Domain.Seedwork.Countries;
 
 // A list of countries together with their 2-letter representation : https://en.wikipedia.org/wiki/ISO_3166-1

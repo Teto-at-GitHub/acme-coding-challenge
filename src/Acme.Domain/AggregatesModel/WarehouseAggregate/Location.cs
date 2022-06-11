@@ -1,6 +1,7 @@
+using System;
 using Acme.Domain.Seedwork;
 
-namespace Acme.Domain.AggregatesModel.Warehouse;
+namespace Acme.Domain.AggregatesModel.WarehouseAggregate;
 
 public class Location : ValueObject
 {
