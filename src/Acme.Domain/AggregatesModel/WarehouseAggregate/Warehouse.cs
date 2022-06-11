@@ -1,7 +1,7 @@
 using Acme.Domain.Seedwork;
 using Acme.Domain.Seedwork.Countries;
 
-namespace Acme.Domain.AggregatesModel.Warehouse;
+namespace Acme.Domain.AggregatesModel.WarehouseAggregate;
 
 public class Warehouse : Entity, IAggregateRoot
 {
