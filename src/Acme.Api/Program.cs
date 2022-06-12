@@ -1,4 +1,5 @@
 using Acme.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,15 +10,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ProductContext>();
+builder.Services.AddDbContext<ProductContext>(
+   options =>
+   {
+      options.UseNpgsql(builder.Configuration.GetSection("DbOptions")["PostgresSQL"]);
+   }
+);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+   app.UseSwagger();
+   app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
