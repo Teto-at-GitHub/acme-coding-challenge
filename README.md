@@ -42,14 +42,14 @@ It's alright, don't be blocked: you can take assumption to move forward. Let us 
 
 ## Remarks and considerations
 
-- At the current state the application implements and exposes a single endpoint to create a new product resource. Unfortunately I cannot manage to make it to work, as I am experiencing some connection issue :
+- At the current state the application implements and exposes a single endpoint to create a new product resource. Unfortunately I cannot manage to make it write to DB, as the request is affected by the following issue :
 
 >System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.  
 ---> Npgsql.NpgsqlException (0x80004005): Failed to connect to [::1]:5432  
 ---> System.Net.Sockets.SocketException (99): Cannot assign requested address  
 ...
 
-- Being new to DDD, I followed [this referemce](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/).
+- Being new to DDD, I followed [this referece](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/).
 - the api and the DB container can be run with `docker-compose` (see below)
 - the script `\src\Acme.Infrastructure\dbScripts\init.sql` sets up the DB when it's first launched (no seeding though)
 - except for `Products`, no other DbSet are declared so far due to lack of time - but at least we see the binding with EF 6 for this entity is working (some shortcuts are still taken, e.g. dangerLevel should be an enum)
