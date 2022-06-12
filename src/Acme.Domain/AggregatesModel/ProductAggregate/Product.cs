@@ -22,4 +22,15 @@ public class Product : Entity, IAggregateRoot
 
    public IReadOnlyCollection<ProductPicture> ProductPictures => _productPictures;
 
+   private DangerLevel _dangerLevel;
+
+   public Product(string name, string description, string dangerLevel, uint price, uint? warehouseId)
+   {
+      _name = name;
+      _description = description;
+      _dangerLevel = (DangerLevel)Enum.Parse(typeof(DangerLevel), dangerLevel, true);
+      _price = price;
+      _warehouseId = warehouseId;
+   }
+
 }

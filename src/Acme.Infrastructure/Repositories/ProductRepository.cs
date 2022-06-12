@@ -6,11 +6,17 @@ namespace Acme.Infrastructure.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-   public IUnitOfWork UnitOfWork => throw new System.NotImplementedException();
+   private readonly ProductContext _context;
+   public IUnitOfWork UnitOfWork => _context;
+
+   public ProductRepository(ProductContext context)
+   {
+      _context = context ?? throw new ArgumentNullException(nameof(context));
+   }
 
    public Product Add(Product product)
    {
-      throw new System.NotImplementedException();
+      return _context.Products.Add(product).Entity;
    }
 
    public Task<Product> GetAsync(uint productId)

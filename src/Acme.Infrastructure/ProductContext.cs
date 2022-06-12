@@ -9,7 +9,7 @@ namespace Acme.Infrastructure;
 
 public class ProductContext : DbContext, IUnitOfWork
 {
-
+   public const string DEFAULT_SCHEMA = "acmedb";
    public DbSet<Product> Products { get; set; }
 
    public DbSet<Warehouse> Warehouses { get; set; }
@@ -18,17 +18,22 @@ public class ProductContext : DbContext, IUnitOfWork
 
    public ProductContext(DbContextOptions<ProductContext> options) : base(options)
    {
-
+      
    }
 
 
-   public Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
+   public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
    {
-      throw new System.NotImplementedException();
+      var result = await base.SaveChangesAsync(cancellationToken);
+
+      return true;
    }
 
    protected override void OnModelCreating(ModelBuilder modelBuilder)
    {
-      modelBuilder.UseIdentityColumns();
+      modelBuilder.Entity<Product>().ToTable("product");
+      modelBuilder.Entity<ProductPicture>().ToTable("picture");
+      modelBuilder.Entity<Warehouse>().ToTable("warehouse");
+      modelBuilder.Entity<Location>().ToTable("location");
    }
 }
