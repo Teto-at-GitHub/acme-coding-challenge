@@ -37,3 +37,11 @@ The Warehouses have a maximum capacity of storage, a location and a friendly ide
 ## Something is not clear? Any missing information?
 
 It's alright, don't be blocked: you can take assumption to move forward. Let us know why you chose to take this direction. :wink:
+
+## My notes
+
+### Run api docker image
+
+```bash
+docker build -t acme.api .
+```
