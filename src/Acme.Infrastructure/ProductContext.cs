@@ -26,4 +26,9 @@ public class ProductContext : DbContext, IUnitOfWork
    {
       throw new System.NotImplementedException();
    }
+
+   protected override void OnModelCreating(ModelBuilder modelBuilder)
+   {
+      modelBuilder.UseSerialColumns();
+   }
 }
