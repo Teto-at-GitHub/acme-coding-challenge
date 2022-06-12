@@ -42,7 +42,7 @@ It's alright, don't be blocked: you can take assumption to move forward. Let us 
 
 ### Docker
 
-#### Api docker image
+#### API docker image only
 
 - Build a container for Acme.Api
 
@@ -53,5 +53,14 @@ docker build -t acme.api .
 - Run docker container for Acme.Api
 
 ```console
-docker run -it --rm -p 5000:5000 --name acme_api 
+docker run -it --rm -p 5000:5000 --name acme_api acme.api
 ```
+
+#### API + DB containers
+
+- Run both API and DB image with docker-compose file :
+
+```console
+docker-compose.exe -f .\docker-compose.yml up
+```
+

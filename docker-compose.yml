@@ -3,10 +3,27 @@
 version: '3.4'
 
 services:
+  database:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    ports:
+      - 8000:8000
+    environment:
+      POSTGRES_PASSWORD: acme
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+
   acmeapi:
     image: acmeapi
     build:
       context: .
-      dockerfile: src/Acme.Api/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - 5000:5000
+    depends_on:
+      - "database"
+
+
+volumes:
+  postgresdata:
