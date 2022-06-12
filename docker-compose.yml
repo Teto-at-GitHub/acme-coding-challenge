@@ -8,9 +8,9 @@ services:
     container_name: postgres
     restart: always
     ports:
-      - 8000:8000
-    environment:
-      POSTGRES_PASSWORD: acme
+      - 5432:5432
+    env_file:
+      - .env #this file should not be committed normally, but here for the PoC we do not gitignore it
     volumes:
       - postgresdata:/var/lib/postgresql/data
 

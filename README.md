@@ -61,6 +61,5 @@ docker run -it --rm -p 5000:5000 --name acme_api acme.api
 - Run both API and DB image with docker-compose file :
 
 ```console
-docker-compose.exe -f .\docker-compose.yml up
+docker-compose -f .\docker-compose.yml up
 ```
-
