@@ -11,7 +11,8 @@ namespace Acme.Api.Dtos
       public string DangerLevel { get; set; }
 
       [Required]
-      public uint Price { get; set; }
+      [Range(0,10000)]
+      public int Price { get; set; }
 
       public string WarehouseFriendlyId { get; set; }
    }

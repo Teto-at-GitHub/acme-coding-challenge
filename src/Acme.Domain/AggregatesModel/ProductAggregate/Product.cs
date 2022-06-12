@@ -10,25 +10,27 @@ public class Product : Entity, IAggregateRoot
 
    private string _description;
 
-   private uint _price;
+   private int _price;
 
    private Guid _guid;
 
-   public uint? GetWarehouseId => _warehouseId;
+   public int GetWarehouseId => _warehouseId;
 
-   private uint? _warehouseId;
+   private int _warehouseId;
 
    private readonly List<ProductPicture> _productPictures;
 
    public IReadOnlyCollection<ProductPicture> ProductPictures => _productPictures;
 
-   private DangerLevel _dangerLevel;
+   private string _dangerLevel;
 
-   public Product(string name, string description, string dangerLevel, uint price, uint? warehouseId)
+   public Product(string name, string description, string dangerLevel, int price, int warehouseId)
    {
       _name = name;
       _description = description;
-      _dangerLevel = (DangerLevel)Enum.Parse(typeof(DangerLevel), dangerLevel, true);
+      // 
+      // (DangerLevel)Enum.Parse(typeof(DangerLevel), dangerLevel, true);
+      _dangerLevel = dangerLevel;
       _price = price;
       _warehouseId = warehouseId;
    }
