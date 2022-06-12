@@ -12,7 +12,8 @@ services:
     env_file:
       - .env #this file should not be committed normally, but here for the PoC we do not gitignore it
     volumes:
-      - postgresdata:/var/lib/postgresql/data
+      - DBdata2:/var/lib/postgresql/data
+      - ./src/Acme.Infrastructure/dbScripts/init.sql :/docker-entrypoint-initdb.d/init.sql
 
   acmeapi:
     image: acmeapi
@@ -26,4 +27,4 @@ services:
 
 
 volumes:
-  postgresdata:
+  DBdata2:
