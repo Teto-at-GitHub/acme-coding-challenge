@@ -40,8 +40,18 @@ It's alright, don't be blocked: you can take assumption to move forward. Let us 
 
 ## My notes
 
-### Run api docker image
+### Docker
 
-```bash
+#### Api docker image
+
+- Build a container for Acme.Api
+
+```console
 docker build -t acme.api .
+```
+
+- Run docker container for Acme.Api
+
+```console
+docker run -it --rm -p 5000:5000 --name acme_api 
 ```
