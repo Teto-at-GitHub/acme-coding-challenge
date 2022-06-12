@@ -29,6 +29,6 @@ public class ProductContext : DbContext, IUnitOfWork
 
    protected override void OnModelCreating(ModelBuilder modelBuilder)
    {
-      modelBuilder.UseSerialColumns();
+      modelBuilder.UseIdentityColumns();
    }
 }
