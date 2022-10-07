@@ -7,13 +7,13 @@ namespace Acme.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProductController : ControllerBase
+public class ProductsController : ControllerBase
 {
-   private readonly ILogger<ProductController> _logger;
+   private readonly ILogger<ProductsController> _logger;
 
    private readonly IProductRepository _productRepository;
 
-   public ProductController(ILogger<ProductController> logger, IProductRepository productRepository)
+   public ProductsController(ILogger<ProductsController> logger, IProductRepository productRepository)
    {
       _logger = logger;
       _productRepository = productRepository;
